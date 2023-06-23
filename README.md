@@ -8,7 +8,7 @@ Smart_dummy uses a language-based model (Spacy) in combination with KMeans
 clustering to group categorical variables into logical groups. The user can
 specify how many groups they would like to output, which results in fewer
 columns compared to pandas.get_dummies().
-For example, you might have a dataset with 900 unique industries, but smart_dummy
+For example, you might have a dataset with 900 unique categories, but smart_dummy
 allows you to cluster those industries together and get (for example) only
 5 columns back instead of the 900 that you would have gotten using
 pandas.get_dummies().
