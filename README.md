@@ -6,12 +6,12 @@ A smart and easy alternative for pandas.get_dummies.
 
 Smart_dummy uses a language-based model (Spacy) in combination with KMeans
 clustering to group categorical variables into logical groups. The user can
-specify how many groups they would like to output, which prevents your
-training-data from exploding when you have too many different categories.
+specify how many groups they would like to output, which results in fewer
+columns compared to pandas.get_dummies().
 For example, you might have a dataset with 900 unique industries, but smart_dummy
 allows you to cluster those industries together and get (for example) only
 5 columns back instead of the 900 that you would have gotten using
-pandas.get_dummies.
+pandas.get_dummies().
 
 ## Getting Started
 
@@ -23,25 +23,31 @@ pip install smart_dummy
 
 ### Example Use
 ```
-test_input = pd.DataFrame(['cat', 'dog', 'flower', 'tree', 'human', 'child'], columns=['category'])
-result = get_dummies(test_input['category'], 3)
+import pandas as pd
+from smart_dummy import get_dummies
+
+test_input = pd.DataFrame(['cat', 'dog', 'flower', 'tree', 'man', 'woman'], columns=['category'])
+result = get_dummies(test_input['category'], 3).set_index(test_input['category'])
+print(result)
 ```
 
 Will give:
 ```
    category_0  category_1  category_2
-0       False        True       False
-1       False        True       False
-2       False       False        True
-3       False       False        True
-4        True       False       False
-5       False       False        True
+cat       0           0           1
+dog       0           0           1
+flower    1           0           0
+tree      1           0           0
+man       0           1           0
+woman     0           1           0
 ```
 
 
 ## Authors
 
-Muriel Grobler (muriel.grobler@gmail.com),
+Muriel Grobler (muriel.grobler@gmail.com)
+
+
 Emma Zhang  (emma.lzhang@gmail.com)
 
 
