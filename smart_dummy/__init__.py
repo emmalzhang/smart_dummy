@@ -7,5 +7,5 @@ except OSError:
     from spacy.cli import download
     download('en_core_web_lg')
 
-from main import get_dummies
+from .main import get_dummies
 __all__ = ['get_dummies']
