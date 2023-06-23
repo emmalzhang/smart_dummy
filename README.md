@@ -1,6 +1,6 @@
 # smart_dummy
 
-A smart and easy alternative for pandas.get_dummies.
+A smart and easy alternative to pandas.get_dummies.
 
 ## Description
 
